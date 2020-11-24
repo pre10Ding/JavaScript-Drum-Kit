@@ -67,11 +67,6 @@
   let keysDown = [""];
 
   function myKeydownHandler(event) {
-    /* this also works but isnt as concise
-    let keyInAscii = keyEventToUpperAscii(event);
-    let keyInAscii = e.keyCode;
-    let keyRef = selectTheDiv(keyInAscii);
-    */
 
     let keyRef = document.querySelector(`div[data-key="${event.keyCode}"]`);
     keyRef.classList.add('playing');
@@ -85,7 +80,6 @@
     }
     keysDown.push(keyRef);
 
-    /*audioEl.load();*/
     audioEl.currentTime = 0;
     audioEl.play();
     console.log(keyRef + " DOWN");
@@ -93,10 +87,7 @@
   }
 
   function myKeyupHandler(event) {
-    /* this also works but isnt as concise
-    let keyInAscii = keyEventToUpperAscii(event);
-    let keyRef = selectTheDiv(keyInAscii);
-    */
+
     let keyRef = document.querySelector(`div[data-key="${event.keyCode}"]`);
 
     keyRef.classList.remove('playing');
@@ -111,17 +102,6 @@
     return 1;
   }
 
-  /* this also works but isnt as concise
-  function selectTheDiv(keyInAscii) {
-    return document.querySelector(`div[data-key="${keyInAscii}"]`);
-  }
-
-  function keyEventToUpperAscii(event) {
-    let keyPressed = ""+event.key;
-    let keyInAscii = keyPressed.toUpperCase().charCodeAt(0);
-    return keyInAscii;
-  }
-  */
   
 
 </script>
